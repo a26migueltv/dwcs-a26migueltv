@@ -1,13 +1,17 @@
 <?php
-class MyGuests{
+class MyGuests
+{
     private int $id;
     private String $firstname;
     private String $lastname;
     private String $email;
     private datetime $reg_date;
 
+    function __toString()
+    {
+        return "<br>$this->id, $this->firstname, $this->lastname, $this->email";
+    }
 
-  
     public function getId()
     {
         return $this->id;
@@ -17,7 +21,7 @@ class MyGuests{
      * Set the value of id
      *
      * @return  self
-     */ 
+     */
     public function setId($id)
     {
         $this->id = $id;
@@ -27,7 +31,7 @@ class MyGuests{
 
     /**
      * Get the value of firstname
-     */ 
+     */
     public function getFirstname()
     {
         return $this->firstname;
@@ -37,7 +41,7 @@ class MyGuests{
      * Set the value of firstname
      *
      * @return  self
-     */ 
+     */
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
@@ -47,7 +51,7 @@ class MyGuests{
 
     /**
      * Get the value of lastname
-     */ 
+     */
     public function getLastname()
     {
         return $this->lastname;
@@ -57,7 +61,7 @@ class MyGuests{
      * Set the value of lastname
      *
      * @return  self
-     */ 
+     */
     public function setLastname($lastname)
     {
         $this->lastname = $lastname;
@@ -67,7 +71,7 @@ class MyGuests{
 
     /**
      * Get the value of email
-     */ 
+     */
     public function getEmail()
     {
         return $this->email;
@@ -77,7 +81,7 @@ class MyGuests{
      * Set the value of email
      *
      * @return  self
-     */ 
+     */
     public function setEmail($email)
     {
         $this->email = $email;
@@ -87,7 +91,7 @@ class MyGuests{
 
     /**
      * Get the value of reg_date
-     */ 
+     */
     public function getReg_date()
     {
         return $this->reg_date;
@@ -97,7 +101,7 @@ class MyGuests{
      * Set the value of reg_date
      *
      * @return  self
-     */ 
+     */
     public function setReg_date($reg_date)
     {
         $this->reg_date = $reg_date;
@@ -105,4 +109,3 @@ class MyGuests{
         return $this;
     }
 }
-?>

@@ -27,17 +27,26 @@ class Operations
             PDO::ATTR_EMULATE_PREPARES   => false,                  // Use real prepared statements
         ];
 
-        try {
-            // Create a PDO instance (connect to the database)
-            $this->conn = new PDO($dsn, $user, $pass, $options);
-            echo "✅ Database connection successful!";
-        } catch (PDOException $e) {
-            // Handle connection errors
-            echo "❌ Database connection failed: " . $e->getMessage();
-        }
+
+        $this->conn = new PDO($dsn, $user, $pass, $options);
     }
     public function closeConnection()
     {
         $this->conn = null;
+    }
+    public function getMyGuest($id)
+    {
+        $sqlString = "select id, firstname, lastanem, email, reg_date from myguests where id = ?;";
+        $query = $this->conn->prepare($sqlString);
+        $query->execute([$id]); // It executes the sql sentence
+        $rowMyGuest = $query->fetch(); //It accesses the first row of data
+        //Create an object of MyGuest with the contents of the table row
+        $obx = new MyGuests();
+        $obx->setFirstname($rowMyGuest["firstname"]);
+        $obx->setId($rowMyGuest["id"]);
+        $obx->setLastname($rowMyGuest["lastname"]);
+        $obx->setEmail($rowMyGuest["email"]);
+        //$obx->setReg_date($rowMyGuest["reg_date"]);
+        return $obx;
     }
 }
