@@ -1,9 +1,9 @@
 <?php
 // Database configuration (match your docker-compose.yml)
-$host = 'mysql';          // The service name in docker-compose (not 'localhost')
-$db   = 'app';        // Database name
-$user = 'app';        // MySQL username
-$pass = 'app_password';    // MySQL password
+$host = 'db';          // The service name in docker-compose (not 'localhost')
+$db   = 'mydb';        // Database name
+$user = 'user';        // MySQL username
+$pass = 'userpass';    // MySQL password
 $charset = 'utf8mb4';
 
 // DSN (Data Source Name)
@@ -24,4 +24,3 @@ try {
     // Handle connection errors
     echo "❌ Database connection failed: " . $e->getMessage();
 }
-?>
